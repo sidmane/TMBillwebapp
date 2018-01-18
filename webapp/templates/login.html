@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" type="text/css">
+
+    <title></title>
+  </head>
+  <body>
+    <div class="container">
+
+    <p>Login Here</p>
+    <form  method="post">
+      {% csrf_token%}
+      <p><label for="id_username">Username:</label> <input type="text" name="username" maxlength="254" id="id_username" autofocus required /></p>
+<p><label for="id_password">Password:</label> <input type="password" name="password" id="id_password" required /></p>
+      <input type="submit" name="Submit" value="submit">
+
+    </form>
+    </div>
+  </body>
+</html>
