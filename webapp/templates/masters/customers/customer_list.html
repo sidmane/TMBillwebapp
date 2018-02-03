@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block body %}
+<br>
+<br>
+<div class="container-fluid">
+      <div class="row">
+    <div class="col-sm-12">
+        <br>
+        <a href="{% url 'webapp:customer_save' %}">
+            <button type="button" class="btn btn-success">
+              &nbsp; Add customer
+            </button>
+        </a>
+    </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+
+        {% if customerslist %}
+
+        {% for customer in customerslist %}
+        <div class="col-sm-4 col-lg-2">
+            <div class="thumbnail" >
+
+                <div class="caption">
+                    <h2>{{ customer.name }}</h2>
+
+                    <!-- View Details -->
+                    <a href="{% url 'webapp:customer' customer.id %}" class="btn btn-primary btn-sm" role="button">View Details</a>
+
+                    <!-- Delete Album -->
+                    <form action="{% url 'webapp:customer_delete' customer.id %}" method="post" style="display: inline;">
+                        {% csrf_token %}
+                        <input type="hidden" name="album_id" value="{{ customer.id }}" />
+                        <button type="submit" class="btn btn-default btn-sm">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor  %}
+
+        {% else %}
+
+        {% endif %}
+    </div>
+</div>
+{% endblock  %}

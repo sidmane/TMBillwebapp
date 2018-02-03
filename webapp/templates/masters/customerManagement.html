@@ -1,0 +1,46 @@
+{% extends 'base.html'%}
+{% block body %}
+<br>
+<br>
+<br>
+<h2>In Customer Management</h2>
+{% for customer in customers%}
+<h1>{{customer}}</h1>
+{%endfor%}
+
+<div class="container">
+  <form style="width: 22rem;>
+      <p class="h5 text-center mb-4">Sign up</p>
+
+      <div class="md-form">
+          <i class="fa fa-user prefix grey-text"></i>
+          <input type="text" id="orangeForm-name" class="form-control">
+
+      </div>
+      <div class="md-form">
+          <i class="fa fa-envelope prefix grey-text"></i>
+          <input type="text" id="orangeForm-moble" class="form-control">
+
+      </div>
+      <div class="md-form">
+          <i class="fa fa-envelope prefix grey-text"></i>
+          <input type="text" id="orangeForm-email" class="form-control">
+
+      </div>
+      <div class="md-form">
+          <i class="fa fa-envelope prefix grey-text"></i>
+          <input type="text" id="orangeForm-business" class="form-control">
+
+      </div>
+
+      <br>
+      <div class="text-center">
+          <button class="btn btn-primary">Delete</button>
+          <button class="btn btn-primary">Insert</button>
+          <button class="btn btn-primary">Update</button>
+      </div>
+
+  </form>
+
+</div>
+{% endblock %}

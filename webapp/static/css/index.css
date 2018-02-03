@@ -9,39 +9,40 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color: #ffffff;
     overflow-x: hidden;
-    transition: 0.5s;
+    transition: 0.4s;
     padding-top: 15px;
+    margin-top: 40px;
 }
 
 .sidenav a {
-    padding: 18px 8px 8px 8px;
+    padding: 8px 4px 4px 8px;
 		text-decoration: none;
-    font-size: 19px;
-		margin-top: 40px;
-    color: #818181;
+    font-size: 16px;
+		margin-top: 16px;
+    color: #000000;
     display: block;
     transition: 0.3s;
 }
 
 .sidenav a:hover {
-    color: #f1f1f1;
+    color: #007bff;
 }
 
 .sidenav .closebtn {
     position: absolute;
     top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
+    right: 20px;
+    font-size: 30px;
+    margin-left: 40px;
 }
 
 #main {
     transition: margin-left .5s;
-    padding: 16px;
+    padding: 6px;
 }
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 25px;}
-  .sidenav a {font-size: 18px;}
+  .sidenav a {font-size: 16px;}
 }

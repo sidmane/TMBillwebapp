@@ -5,65 +5,92 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {% load staticfiles %}
+
+
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/index.css' %}" type="text/css">
-    <script src="{% static 'js/jquery.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+    <script src="{% static 'js/jquery.js' %}" > </script>
     <script src="{% static 'js/bootstrap.min.js' %}"> </script>
+
 
     {% block head%}
     <title>TMBill</title>
     {% endblock %}
+
+<header>
+
+      <nav class="navbar navbar-expand-md navbar-light fixed-top bg-ligt">
+
+        <a class="navbar-brand" onclick="openDrawer()"><strong><i class="fa fa-bars fa-fw" aria-hidden="true" id="drawerLogo"></i>&nbsp;  TMBill</strong> </a>
+        </button>
+        <div class="container">
+
+
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item active dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Masters
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">Admin Management</a>
+                <a class="dropdown-item" href="#">Vendor Management</a>
+                <a class="dropdown-item" href="{% url 'webapp:customer_list' %}" >Customer Management</a>
+              </div>
+            </li>
+
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">&nbsp;Inventory Management</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">&nbsp;Tables</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">&nbsp;Reports</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">&nbsp;Purchase</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">&nbsp;About</a>
+            </li>
+
+
+
+          </ul>
+          <ul class="navbar-nav nav-flex-icons">
+      <li class="nav-item">
+          <a class="nav-link"><i class="fa fa-facebook"></i></a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link"><i class="fa fa-twitter"></i></a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link"><i class="fa fa-instagram"></i></a>
+      </li>
+  </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item" >
+              <a class="nav-link" href="/webapp/logout/">LogOut</a>
+            </li>
+          </ul>
+
+        </div>
+        </div>
+      </nav>
+</header>
   </head>
   <body>
 
-<div class="container">
-
-
-    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
-
-      <a class="navbar-brand" onclick="openNav()"><strong> TMBill</strong> </a>
-      </button>
 
 
 
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-
-          <li class="nav-item active">
-
-            <a class="nav-link" href="#">Masters <span class="sr-only">(current)</span></a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="#">Inventory Management</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Tables</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Reports</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Purchase</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
 
 
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="nav-item" >
-            <a class="nav-link" href="/webapp/logout/">LogOut</a>
-          </li>
-        </ul>
-
-      </div>
-
-    </nav>
-
-
-    </div>
     <div  id="main">
       {% block body %}
 
@@ -71,11 +98,11 @@
     </div>
 
     <div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">About</a>
-  <a href="#">Services</a>
-  <a href="#">Clients</a>
-  <a href="#">Contact</a>
+  <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
+  <a href="#"><i class="fa fa-cutlery fa-fw" aria-hidden="true"></i>&nbsp; Orders</a>
+  <a href="#"><i class="fa fa-book fa-fw" aria-hidden="true"></i>&nbsp; Receipts</a>
+  <a href="#"><i class="fa fa-shopping-cart fa-fw" aria-hidden="true"></i>&nbsp; Purchase</a>
+  <a href="#"><i class="fa fa-address-book-o fa-fw" aria-hidden="true"></i>&nbsp; Contact Us</a>
 </div>
 
 
@@ -87,15 +114,32 @@
 
 
     <script>
+    var isdrawerOpen=false;
+    function openDrawer(){
+      if(!isdrawerOpen){
+        document.getElementById("mySidenav").style.width = "150px";
+        document.getElementById("main").style.marginLeft = "150px";
+        // $(this).find('.drawerLogo').toggleClass('fa fa-cutlery fa fa-book');
+
+        isdrawerOpen=true;
+      }else{
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+        isdrawerOpen=false;
+
+      }
+    }
+
     function openNav() {
-        document.getElementById("mySidenav").style.width = "200px";
-        document.getElementById("main").style.marginLeft = "200px";
+        document.getElementById("mySidenav").style.width = "150px";
+        document.getElementById("main").style.marginLeft = "150px";
     }
 
     function closeNav() {
         document.getElementById("mySidenav").style.width = "0";
         document.getElementById("main").style.marginLeft= "0";
     }
+
     </script>
   </body>
 </html>

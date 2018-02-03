@@ -3,40 +3,57 @@
 {% block body %}
 <br>
 <br>
-
+<br>
 
 <div class="row">
-<div class="card mb-4">
+        <div class="col-sm-4 col-md-3">
+          <div class="card text-white bg-dark mb-3 text-center" style="max-width: 15rem;">
+            <div class="card-header">Total Expensess</div>
+            <div class="card-body">
+              <h5 class="card-title">XXX</h5>
 
-<div class="card text-white bg-dark mb-3 text-center" style="max-width: 15rem;">
-  <div class="card-header">Today's Sales</div>
-  <div class="card-body">
-    <h5 class="card-title">XXX</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-3">
+          <div class="card text-white bg-dark mb-3 text-center" style="max-width: 15rem;">
+            <div class="card-header">Total Expensess</div>
+            <div class="card-body">
+              <h5 class="card-title">XXX</h5>
 
-  </div>
-</div>
-<div class="card text-white bg-dark mb-3 text-center" style="max-width: 15rem;">
-  <div class="card-header">Total Sales</div>
-  <div class="card-body">
-    <h5 class="card-title">XXX</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-3">
+          <div class="card text-white bg-dark mb-3 text-center" style="max-width: 15rem;">
+            <div class="card-header">Total Expensess</div>
+            <div class="card-body">
+              <h5 class="card-title">XXX</h5>
 
-  </div>
-</div>
-<div class="card text-white bg-dark mb-3 text-center" style="max-width: 15rem;">
-  <div class="card-header">Todays Expenses</div>
-  <div class="card-body">
-    <h5 class="card-title">XXX</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-3">
+          <div class="card text-white bg-dark mb-3 text-center" style="max-width: 15rem;">
+            <div class="card-header">Total Expensess</div>
+            <div class="card-body">
+              <h5 class="card-title">XXX</h5>
 
-  </div>
-</div>
-<div class="card text-white bg-dark mb-3 text-center" style="max-width: 15rem;">
-  <div class="card-header">Total Expensess</div>
-  <div class="card-body">
-    <h5 class="card-title">XXX</h5>
+            </div>
+          </div>
+        </div>
 
-  </div>
-</div>
-</div>
-</div>
+
+    </div>
+    <div class="row">
+      {% for tableName in tables %}
+            <div class="col-sm-1 ">
+              <button type="button" class="btn btn-outline-success waves-effect">{{ tableName }}</button>
+            </div>
+
+      {% endfor %}
+    </div>
+
+
 
 {% endblock %}
